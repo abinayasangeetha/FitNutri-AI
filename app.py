@@ -204,7 +204,6 @@ def water_requirement(user_id: str):
         "recommended_water_ml_per_day": water,
         "recommended_water_liters_per_day": round(water / 1000, 2)
     }
-
 @app.get("/meal-plan/{user_id}")
 def meal_plan(user_id: str):
 
@@ -221,10 +220,64 @@ def meal_plan(user_id: str):
         profile["height_cm"]
     )
 
+    diet_rules = ""
+
+    if profile["diet_preference"].lower() == "vegetarian":
+
+        diet_rules = """
+        IMPORTANT DIET RULES:
+
+        User is STRICTLY VEGETARIAN.
+
+        NEVER suggest:
+        - Chicken
+        - Fish
+        - Mutton
+        - Beef
+        - Eggs
+        - Seafood
+
+        Use only:
+        - Paneer
+        - Tofu
+        - Soy chunks
+        - Lentils
+        - Beans
+        - Milk
+        - Curd
+        - Nuts
+        - Seeds
+
+        Violation of these rules is not allowed.
+        """
+
+    elif profile["diet_preference"].lower() == "vegan":
+
+        diet_rules = """
+        IMPORTANT DIET RULES:
+
+        User is VEGAN.
+
+        NEVER suggest:
+        - Milk
+        - Curd
+        - Paneer
+        - Cheese
+        - Eggs
+        - Chicken
+        - Fish
+        - Any animal product
+
+        Use only plant-based foods.
+        """
+
     prompt = f"""
+    You are an expert nutritionist.
+
     Create a detailed 1-day meal plan.
 
     User Details:
+
     Age: {profile['age']}
     Gender: {profile['gender']}
     Weight: {profile['weight_kg']} kg
@@ -232,6 +285,8 @@ def meal_plan(user_id: str):
     BMI: {bmi}
     Goal: {profile['goal']}
     Diet Preference: {profile['diet_preference']}
+
+    {diet_rules}
 
     Include:
 
@@ -241,25 +296,22 @@ def meal_plan(user_id: str):
     4. Evening Snack
     5. Dinner
 
-    Mention calories approximately.
-
-    Use healthy foods.
-    
-    IMPORTANT:
-    Only suggest foods matching the user's diet preference.
-    Never suggest foods outside the diet preference.
-    If Diet Preference is Vegetarian:
-    Never recommend chicken, fish, mutton, beef or eggs.
-    Suggest vegetarian alternatives.
+    Mention approximate calories.
 
     If goal is weight loss:
-    create calorie deficit meals.
+    - Create calorie deficit meals.
 
     If goal is weight gain:
-    create calorie surplus meals.
+    - Create calorie surplus meals.
 
     If goal is muscle gain:
-    include high protein foods.
+    - Include high protein foods.
+
+    Rules:
+    - Follow diet preference strictly.
+    - Use practical foods.
+    - Keep the plan easy to follow.
+    - Do not violate diet restrictions.
     """
 
     response = generate_response(

@@ -256,6 +256,42 @@ Based on body weight.
 Based on body weight.
 
 ---
+## Sample outputs
+
+### 🔐 Login Page
+
+![Login Page](assets/login.png)
+
+---
+
+### 📋 Dashboard
+
+![Dashboard](assets/dashboard.png)
+
+---
+
+### 🤖 AI Chatbot
+
+![Chatbot](assets/chatbot.png)
+
+![Chatbot](assets/chatbot2.png)
+
+---
+
+### 🍽 Personalized Meal Plan
+
+![Meal Plan](assets/mealplan.png)
+
+---
+### Workout Plan
+
+![Workout Plan](assets/workoutplan.png)
+
+![Workout Plan](assets/workoutplan2.png)
+
+### 📊 Health Report
+
+![Health Report](assets/healthreport.png)
 
 ## 🔄 Application Workflow
 
@@ -318,6 +354,5 @@ Abinaya S
 - Personalized Health Recommendations
 - Persistent User Profiles
 - Goal Validation Logic
-=======
 
->>>>>>> dad9b8ada74f4556383032a95e4906cb97cd58b2
+---
