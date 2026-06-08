@@ -318,3 +318,6 @@ Abinaya S
 - Personalized Health Recommendations
 - Persistent User Profiles
 - Goal Validation Logic
+=======
+
+>>>>>>> dad9b8ada74f4556383032a95e4906cb97cd58b2
