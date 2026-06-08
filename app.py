@@ -322,7 +322,6 @@ def meal_plan(user_id: str):
     return {
         "meal_plan": response
     }
-
 @app.get("/workout-plan/{user_id}")
 def workout_plan(user_id: str):
 
