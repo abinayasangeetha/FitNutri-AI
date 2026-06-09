@@ -285,9 +285,10 @@ Based on body weight.
 ---
 ### Workout Plan
 
-![Workout Plan](assets/workoutplan.png)
+<img width="1511" height="830" alt="workout" src="https://github.com/user-attachments/assets/707b09d9-db67-436a-9252-253d53309f57" />
 
-![Workout Plan](assets/workoutplan2.png)
+<img width="1652" height="262" alt="workout2" src="https://github.com/user-attachments/assets/93b9bdb6-da4d-4147-a498-60146c157794" />
+
 
 ### 📊 Health Report
 
